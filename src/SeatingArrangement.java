@@ -15,16 +15,14 @@ public class SeatingArrangement {
                 System.out.println(String.valueOf(getSeatFaced(input))+" "+getSeatCode(input));
             }
             else {
-                int tempInput = input;
-
-                int faced = 0;
-                int factor = 0;
-                while (tempInput>12) {
-                    tempInput-=12;
-                    factor++;
+                int factor = input / 12;
+                int tempInput = input - (factor * 12);
+                if (tempInput==0) {
+                    tempInput = 12;
+                    factor--;
                 }
 
-                faced = factor * 12 + getSeatFaced(tempInput);
+                int faced = factor * 12 + getSeatFaced(tempInput);
                 System.out.println(String.valueOf(faced)+" "+getSeatCode(tempInput));
             }
 
